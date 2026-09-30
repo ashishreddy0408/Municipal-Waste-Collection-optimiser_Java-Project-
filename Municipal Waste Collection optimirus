@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+class WasteCollection {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n, full, category;
+        String truck;
+
+        System.out.print("Enter number of collection points: ");
+        n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+
+            System.out.println("\nCollection Point " + i);
+
+            System.out.print("Is the bin full? (1-Yes, 0-No): ");
+            full = sc.nextInt();
+
+            // if-else for bin status
+            if (full == 1) {
+                System.out.println("Bin is full - Pickup required.");
+
+                System.out.print("Enter waste category (1-Dry, 2-Wet, 3-Plastic): ");
+                category = sc.nextInt();
+
+                // switch for waste category
+                switch (category) {
+                    case 1:
+                        System.out.println("Dry waste selected.");
+                        break;
+                    case 2:
+                        System.out.println("Wet waste selected.");
+                        break;
+                    case 3:
+                        System.out.println("Plastic waste selected.");
+                        break;
+                    default:
+                        System.out.println("Invalid category.");
+                }
+
+                System.out.print("Enter truck name: ");
+                truck = sc.next();
+
+                System.out.println("Truck " + truck + " assigned.");
+            } 
+            else {
+                System.out.println("Bin is not full - No pickup required.");
+            }
+        }
+
+        // while loop for route completion
+        int route = 1;
+        while (route <= n) {
+            System.out.println("Route " + route + " completed.");
+            route++;
+        }
+
+        System.out.println("\nWaste collection process completed.");
+        System.out.println("Missed pickup report: Check completed routes.");
+
+        sc.close();
+    }
+}
